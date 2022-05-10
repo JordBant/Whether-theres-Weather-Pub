@@ -1,0 +1,615 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;400&family=Overpass:wght@100;300;400;800&display=swap');
+
+//=============Animations==============// 
+
+
+//===========================Mixins===========================//
+
+@mixin body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//to be added onto pseudo elements
+@mixin glimmer {
+    content: '';
+    @include size(100%, 100%, 0, 0);
+    background: linear-gradient(90deg, #817f7f00, #ffffff36);
+    position: absolute;
+    top: 0; 
+    left: 0;
+    transition: 0.3s all ease-in-out;
+    opacity: 0;
+}
+
+@mixin frostGlass($hex-hex){
+    background: $hex-hex;
+    border: 1px solid #ffffff4d;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14px);
+}
+
+@mixin font($weight-weight, $size-size, $color-color, $font-fam){
+    font: $weight-weight $size-size $font-fam, sans-serif;
+    color: $color-color;
+}
+
+@mixin fourGrid($row1, $row2, $col1, $col2){
+    display: grid;
+    grid-template-rows: $row1 $row2;
+    grid-template-columns: $col1 $col2;
+}
+
+@mixin size($fillWidth-width, $fillHeight-height, $margin-margin, $padding-padding){
+    margin: $margin-margin;
+    padding: $padding-padding;
+    width: $fillWidth-width;
+    height: $fillHeight-height;
+}
+
+@mixin flex($justify-justify, $align-align, $direction-flex_dir, $self-self_ju, $self-self_al){
+    display: flex;
+    justify-content: $justify-justify;
+    align-items: $align-align;
+    flex-direction: $direction-flex_dir;
+    justify-self: $self-self_ju;
+    align-self: $self-self_al;
+}
+
+@mixin card($cardW-W, $cardH-H, $bg-bg){
+    @include size($cardW-W, $cardH-H, 10px, 10px);
+    @include frostGlass($bg-bg);
+    transition: all 0.5s ease-in-out;
+    list-style: none;
+    border-radius: 15px;
+    border: none;
+}
+
+//==--==--==--==--==--==--==--==--==--==--==--==--==//
+//===========================Properties===========================//
+body
+{
+    @include body();
+    @include size(100vw, 100vh, NULL, NULL);
+    @include flex(space-between, center, NULL, NULL, NULL);
+
+    background: #0e101f no-repeat center center;
+    background-image: url(../media/weatherApp.jpg);
+    background-size: cover;
+
+    & > *{background: transparent;}    
+}
+
+//==--==--==--==--==--==--==--==--==--==--==--==--==//
+                  // Main Section //
+//==--==--==--==--==--==--==--==--==--==--==--==--==//
+
+.main
+{
+    @include flex(space-between, center, column, center, NULL);
+    @include size(80%, 91.8vh, 0, 20px 30px);
+
+    /* 
+    ++++++++++++++++++++++ 
+        Search Section 
+    ++++++++++++++++++++++ 
+    */
+    .search-div{
+        
+        @include frostGlass(#2a2b33be);
+        @include size(clamp(300px, 50%, 500px), 5%, 0, 5px 0 0 5px);
+
+        @include flex(center, center, column, NULL, NULL);
+        align-self: center;
+        transition: all 0.4s ease-in-out;
+        position: relative;
+
+        // border: pink solid 2px;
+        border-radius: 25px;
+
+        .search{
+            @include font(300, 1rem, white, 'Overpass');
+            @include size(90%, 37px, 0, 0 5px 0 5px);
+
+            position: absolute;
+            top: 5px;
+            background: none;
+            outline: none;
+            border: none;
+            transition: all 0.7s ease-in-out;
+            
+            &:focus{
+                outline: none;
+                background: none;
+            }
+        }
+        .locations-dropdown{
+            @include size(100%, 80%, 50px 0 5px 0, 0);
+            overflow: scroll;
+            text-align: start;
+            list-style: none;
+
+            .location{
+                @include font(100, 15px/*clamp(25px, 4vw, 55px)*/, white, 'Manrope');
+                @include size(95%, 10px, 0, 15px);
+                list-style: none;
+                position: relative;
+                border-top: rgba(255, 255, 255, 0.521) solid 1px;
+                transition: 0.4s all ease-in-out;
+                opacity: 1;
+                // background-color: red;
+                
+                &::before{@include glimmer();}
+                &:hover::before{
+                    opacity: 0.5;
+                    box-shadow: inset 0 0 4px rgb(110, 110, 110);
+                    // transform: scale(2);
+                }
+            }
+        }
+        &:hover{
+            height: 60%;
+            border: none;
+            padding: 3px;
+            border-radius: 15px;
+            .search{
+                top: 5px;
+                border-bottom: 0.25px black solid;
+            }
+        }
+    }
+
+    /* 
+    ++++++++++++++++++++++++++++++++++++++++++++
+            City / Temperature Section 
+    ++++++++++++++++++++++++++++++++++++++++++++
+    */
+    .main-sec
+    {        
+        @include flex(flex-start, center, NULL, NULL, NULL);
+        @include size(100%, auto, 0, 0);
+        @include font(200, clamp(30px, 4vw, 55px), white, 'Overpass');
+
+        // border: 2px solid red;
+        #temperature{
+            @include font(400, clamp(25px, 4vw, 55px), white, 'Manrope');
+            transition: all 0.5s ease-in-out
+        }
+
+        .line{
+            @include size(3px, 50%, NULL, NULL);
+            margin: 3px 3%;
+            background-color: white;
+            border-radius: 50px;
+            border: none;
+        }
+
+        .supers{
+            @include flex(center, center, row, NULL, NULL);
+            @include font(400, 20px, white, 'Manrope');
+            @include size(auto, 50%, 0, 0);
+            margin-left: 5px;
+            
+            // border: 2px brown solid;
+            //transform: rotate(-140deg);
+
+            .selected
+            {
+                cursor: pointer;
+                font-size: clamp(25px, 3.7vw, 55px);
+                margin: 7px;
+                transition: 0.3s all ease-in-out;
+            }
+            .unselected{
+                cursor: pointer;
+                opacity: 0.4;
+                transition: 0.3s all ease-in-out;
+                margin-left: 4px;
+                text-shadow: none;
+                &:hover{
+                    opacity: 1;
+                    text-shadow: 0px 0px 2px white;
+                }
+            }
+        }
+    }
+}
+
+.pseudo{
+
+    @include size(400px, 100vh, 0, 0);
+    @include frostGlass(#2a2b33d8);
+
+    justify-self: flex-end;
+    border-radius: 45px 0 0 45px;
+    border: none;
+    
+    //==--==--==--==--==--==--==--==--==--==--==--==--==//
+                 // Aside 1 (Grid Child 1) //
+    //==--==--==--==--==--==--==--==--==--==--==--==--==//
+    .aside1
+    {
+        @include flex(center, center, column, NULL, NULL); 
+        @include size(100%, 50%, 0, 0);
+    
+        .now{
+            @include size(85%, auto, 35px 0 auto 0, 0 15px 0 15px);
+            @include flex(space-between, center, row, NULL, flex-end);
+            @include frostGlass(rgba(0, 0, 0, 0.164));
+
+            box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 30px 0 0 30px;
+    
+            .cur-condition{
+                @include flex(center, center, NULL, NULL, NULL);
+                @include size(auto, auto, NULL, 0);
+                position: relative;
+
+                #condition-icon{
+                    @include size(70px, 70px, 0, 0);
+                    // border: red 2px solid;
+                    // background-repeat: no-repeat;
+                    // background-size: contain;
+                    // background-image: url('../media/displayed.svg')
+                }
+
+                #apparent{
+                    @include font(200, 30px, white, 'Manrope');
+                    @include flex(center, center, column, NULL, NULL);
+                    @include size(60px, auto, NULL, 0);
+
+                    position: relative;
+                    margin-left: 17px;
+
+                    &::after{
+                        content: '';
+                        @include size(1.5px, 50px, 0, 0);
+                        position: absolute;
+                        right: 110%;
+                        background-color: white;
+                    }
+
+                    &::before{
+                        content: 'Feels Like';
+                        @include size(100%, auto, 0, 0);
+                        @include font(500, 12px, white, 'Overpass');
+                        text-align: center;
+                        opacity: 1;
+                        transition: all 0.4 ease-in;
+                    }
+                }
+            }
+            #clock{
+                @include flex(center, center, column, 0, 0);
+                @include font(300, clamp(27px, 2.3vw, 35px), white, 'Manrope');
+    
+                #digital{
+                    margin: 0;
+                    padding: 0;
+                }
+                .calender-date{
+                    @include font(500, 15px, white, 'Manrope');
+                    @include flex(center, center, NULL, NULL, NULL);
+                    @include size(100%, auto, 0, 0);
+                    
+                    #day, #date{
+                        align-self: center;
+                        margin: 0;
+                        letter-spacing: 2px;
+                    }
+                }
+            }
+        }
+        
+        .timeline{
+            @include size(100%, 100%, 0, 0);
+            @include flex(center, center, column, NULL, NULL);
+            position: relative;
+            overflow: hidden;
+    
+            .arch{     
+                $position: 270deg;                  //relative position of the numbers on the baseline
+                $deg-apart: 22.5deg;                //1/4 of 90 degreea
+                $betweens: $position + $deg-apart;
+            
+                @include size(100%, clamp(150px, 17vw, 200px), 0 7px 0 0, 0);
+                transition: all 0.3s ease-in-out;
+                position: relative;
+            
+                .interval{
+                    @include size(100%, 190%, 0, 8px);
+            
+                    list-style: none;
+                    position: absolute;
+                    text-align: center;
+    
+                    #info-at{
+                        @include font(400, 1em, white, 'Overpass');
+                    }
+                    .time{
+                        @include font(400, 0.7em, white, 'Overpass');
+                    }
+                }
+            
+                @for $i from 1 through 7{
+                    .position-#{$i}{
+                        transform: rotate($betweens);
+                        .info-#{$i}{
+                            transform: rotate(-$betweens);
+                        }
+                        .interval-at#{$i}{
+                            transform: rotate(-$betweens);
+                        }
+                    }
+                    $betweens: $betweens + $deg-apart;
+                }
+                
+            }
+            .baseline{
+                @include size(94%, auto, 0, 0);
+                @include flex(space-around, center, NULL, NULL, flex-end);
+                @include frostGlass(rgba(0, 0, 0, 0.164));
+    
+                backdrop-filter: blur(0);
+                box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.5);
+                border-radius: 15px 0 0 15px;
+                
+                .baseOf{
+                    @include flex(center, center, column, NULL, NULL);
+                    @include size(auto, auto, 0, 7px);
+                    
+                    
+                    list-style: none;
+                    .hour{
+                        border-top: 2px white solid;
+                    }
+                    & > * {
+                        @include font(400, 1.2em, white, 'Manrope');
+                    }
+                }
+            }
+        }
+    }
+    
+    //==--==--==--==--==--==--==--==--==--==--==--==--==//
+                 // Aside 2 (Grid Child 2) //
+    //==--==--==--==--==--==--==--==--==--==--==--==--==//
+    .aside2
+    {
+        @include size(auto, 45%, 0, 20px 0 0 20px);
+    
+        .card-list{
+            @include size(100%, 100%, 0, 0);
+            @include fourGrid(1fr, 1fr, 1fr, 1fr);
+            @include frostGlass(rgba(0, 0, 0, 0.164));
+                
+            backdrop-filter: blur(0);
+            box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.5);
+            border-radius: 45px 0 0 45px;
+            border: none;
+    
+            .card{
+                @include card(70%, 78%, NULL);
+                @include flex(space-between, flex-end, column, NULL, NULL);
+                @include font(200, 1rem, white, 'Manrope');
+    
+                position: relative;
+                background: none;
+                border-right: solid black 1px;
+                backdrop-filter: none;
+                transition: all 0.4s ease-in-out;
+                border-radius: 0;
+                box-shadow: none;
+    
+                p{
+                    @include size(NULL, NULL, 0, 0);
+                    @include font(300, 30px, NULL, 'Manrope');
+                }
+    
+                img{
+                    @include size(50%, auto, 0, 0);
+                }
+    
+                &::before{
+                    content: '';
+    
+                    @include size(100%, 100%, auto, 0);
+                    @include glimmer();
+                    border-radius: 15px 0 0 15px;
+                    z-index: -1;
+                }
+    
+                &:hover::before{
+                    opacity: 0.7;
+                }
+
+            }
+        }
+    }
+}
+
+//===========================Media Queries=============================//
+
+                // -=-=-=-=-Portrait Phones-=-=--=- //
+//Media query for portrait of a phone 
+/*
+    - The screen is a flex parent
+    - Search Bar would take up 80% of the top of the nav
+    - bottom of the main section keeps the same format ( City, State | Temperature F/C )
+    - Photo will be parallax
+    ---------------------------
+    - Bottom will be a second imported picture as a background 
+    which will just be a picture of the current weather condition
+
+    - Left side of the bottom page will be a list of the conditions with corresponding times
+    - Right Side will be the current weather condition represented as an icon and the current feels like temperature
+*/
+
+@media only screen and (max-width: 925px){
+    #digital{
+        display: none;
+    }
+    #day{
+        display: none;
+    }
+    .analog{
+        @include size(50px, 50px, NULL, NULL);
+        border: 1.5px solid white;
+        border-radius: 50%;
+        position: relative;
+        opacity: 1;
+
+        .hand{
+            top: 50%;
+            right: 50%;
+            position: absolute;
+            border-radius: 6px;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        }
+    
+        .hour-hand{
+            @include size(30%, 2.5px, NULL, NULL);
+            background: white;
+        }
+        .min-hand{
+            @include size(45%, 1.5px, NULL, NULL);
+            background: white;
+        }
+        .sec-hand{
+            @include size(47%, 1.7px, NULL, NULL);
+            background: red;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 600px){
+    body{
+        @include flex(center, center, column, NULL, NULL);
+        @include size(100vw, 200vh, NULL, NULL);
+    }
+    .main{
+        @include size(100%, 100%, 0, 0);
+        // border: 2px solid red;
+        .search-div{
+            @include size(85%, 40px, 20px 0 0 0, 0);
+        }
+        .main-sec{
+            @include size(85%, auto, 0, 0 0 0 20px);
+        }
+    }
+    .pseudo{
+        @include size(100%, 100%, 0, 0);
+        @include flex(space-around, center, column, NULL, NULL);
+
+        backdrop-filter: blur(200px);
+        border-radius: 50px 50px 0 0;
+        
+        .aside1{
+            @include size(90%, 40%, 0, 0);
+            @include flex(center, center, column, NULL, NULL);
+            // border: 2px red solid;
+            // justify-self: flex-start;
+
+            .now{
+                // @include
+                padding-top: 25px;
+                width: 65%;
+                align-self: center;
+                background-color: transparent;
+                backdrop-filter: none;
+                box-shadow: none;
+                border: none;
+                // border: 2px cyan solid;
+
+                #clock{display: none;}
+                .cur-condition{
+                    @include size(130%, 100%, 0, 5px);
+                    @include flex(center, center, NULL, NULL, NULL);
+                    @include frostGlass(rgba(0, 0, 0, 0.219));
+                    border: none;
+                    // box-shadow: 0 0 10px rgb(46, 46, 46);
+                    border-radius: 15px;
+                    
+                    & > *{
+                        @include size(100px, 100px, 0, 0);
+                    }
+                    #apparent{
+                        @include font(200, 35px, white, 'Manrope');
+                        @include flex(center, center, column, NULL, NULL);
+                        @include size(60px, auto, 0 0 0 40px, 0);
+                        justify-self: center;
+                    }
+                }
+            }
+            .timeline{
+                @include flex(center, center, NULL, NULL, NULL);
+
+                .baseline{
+                    @include size(90%, auto, 0, 0);
+
+                    align-self: center;
+                    background-color: transparent;
+                    backdrop-filter: none;
+                    box-shadow: none;
+                    border: none;
+    
+                    // border: red 2px solid;
+                }
+            }
+        }
+        .aside2{
+            @include size(90%, auto, 0, 0);
+            .card-list{
+                border-radius: 15px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-height: 650px){
+    .pseudo{
+        border-radius: 15px 0 0 15px;
+
+        .aside1{
+            @include size(100%, 100%, 0, 0);
+            @include flex(center, center, NULL, NULL, NULL);
+            // border: 2px solid blue;
+
+            .timeline{
+                @include flex(center, center, column, NULL, NULL);
+                // border: 2px solid red;
+                
+                .arch{
+                    @include size(150px, clamp(150px, 60%, 160px), 0, 0);
+                }
+    
+                .baseline {
+                    @include flex(space-around, center, NULL, NULL, flex-end);
+                    @include size(95%, 30%, 0, 0);
+                    font-size: 20px;
+                    border-radius: 15px 0 0 15px;
+                    // border: 2px solid cyan;
+                }
+            }
+        }
+        .aside2{
+            display: none;
+        }
+    }
+}
+@media only screen and (max-height: 450px){
+    .aside1{
+        @include size(100%, 100%, 0, 0);
+        // border: 2px solid orange;
+        // display: none;
+    }
+    .aside2{
+        display: none;
+    }
+}
+//=====================================================================//

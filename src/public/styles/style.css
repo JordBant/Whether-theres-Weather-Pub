@@ -1,0 +1,1197 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;400&family=Overpass:wght@100;300;400;800&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: NULL;
+  padding: NULL;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: NULL;
+          flex-direction: NULL;
+  justify-self: NULL;
+  -ms-flex-item-align: NULL;
+      align-self: NULL;
+  background: #0e101f no-repeat center center;
+  background-image: url(../media/weatherApp.jpg);
+  background-size: cover;
+}
+
+body > * {
+  background: transparent;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: center;
+  -ms-flex-item-align: NULL;
+      align-self: NULL;
+  margin: 0;
+  padding: 20px 30px;
+  width: 80%;
+  height: 91.8vh;
+  /* 
+    ++++++++++++++++++++++ 
+        Search Section 
+    ++++++++++++++++++++++ 
+    */
+  /* 
+    ++++++++++++++++++++++++++++++++++++++++++++
+            City / Temperature Section 
+    ++++++++++++++++++++++++++++++++++++++++++++
+    */
+}
+
+.main .search-div {
+  background: #2a2b33be;
+  border: 1px solid #ffffff4d;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
+  margin: 0;
+  padding: 5px 0 0 5px;
+  width: clamp(300px, 50%, 500px);
+  height: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: NULL;
+  -ms-flex-item-align: NULL;
+      align-self: NULL;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  border-radius: 25px;
+}
+
+.main .search-div .search {
+  font: 300 1rem "Overpass", sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0 5px 0 5px;
+  width: 90%;
+  height: 37px;
+  position: absolute;
+  top: 5px;
+  background: none;
+  outline: none;
+  border: none;
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+.main .search-div .search:focus {
+  outline: none;
+  background: none;
+}
+
+.main .search-div .locations-dropdown {
+  margin: 50px 0 5px 0;
+  padding: 0;
+  width: 100%;
+  height: 80%;
+  overflow: scroll;
+  text-align: start;
+  list-style: none;
+}
+
+.main .search-div .locations-dropdown .location {
+  font: 100 15px "Manrope", sans-serif;
+  color: white;
+  margin: 0;
+  padding: 15px;
+  width: 95%;
+  height: 10px;
+  list-style: none;
+  position: relative;
+  border-top: rgba(255, 255, 255, 0.521) solid 1px;
+  -webkit-transition: 0.4s all ease-in-out;
+  transition: 0.4s all ease-in-out;
+  opacity: 1;
+}
+
+.main .search-div .locations-dropdown .location::before {
+  content: '';
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#817f7f00), to(#ffffff36));
+  background: linear-gradient(90deg, #817f7f00, #ffffff36);
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  opacity: 0;
+}
+
+.main .search-div .locations-dropdown .location:hover::before {
+  opacity: 0.5;
+  -webkit-box-shadow: inset 0 0 4px #6e6e6e;
+          box-shadow: inset 0 0 4px #6e6e6e;
+}
+
+.main .search-div:hover {
+  height: 60%;
+  border: none;
+  padding: 3px;
+  border-radius: 15px;
+}
+
+.main .search-div:hover .search {
+  top: 5px;
+  border-bottom: 0.25px black solid;
+}
+
+.main .main-sec {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: NULL;
+          flex-direction: NULL;
+  justify-self: NULL;
+  -ms-flex-item-align: NULL;
+      align-self: NULL;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  font: 200 clamp(30px, 4vw, 55px) "Overpass", sans-serif;
+  color: white;
+}
+
+.main .main-sec #temperature {
+  font: 400 clamp(25px, 4vw, 55px) "Manrope", sans-serif;
+  color: white;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.main .main-sec .line {
+  margin: NULL;
+  padding: NULL;
+  width: 3px;
+  height: 50%;
+  margin: 3px 3%;
+  background-color: white;
+  border-radius: 50px;
+  border: none;
+}
+
+.main .main-sec .supers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  justify-self: NULL;
+  -ms-flex-item-align: NULL;
+      align-self: NULL;
+  font: 400 20px "Manrope", sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: 50%;
+  margin-left: 5px;
+}
+
+.main .main-sec .supers .selected {
+  cursor: pointer;
+  font-size: clamp(25px, 3.7vw, 55px);
+  margin: 7px;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+}
+
+.main .main-sec .supers .unselected {
+  cursor: pointer;
+  opacity: 0.4;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  margin-left: 4px;
+  text-shadow: none;
+}
+
+.main .main-sec .supers .unselected:hover {
+  opacity: 1;
+  text-shadow: 0px 0px 2px white;
+}
+
+.pseudo {
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  height: 100vh;
+  background: #2a2b33d8;
+  border: 1px solid #ffffff4d;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
+  justify-self: flex-end;
+  border-radius: 45px 0 0 45px;
+  border: none;
+}
+
+.pseudo .aside1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: NULL;
+  -ms-flex-item-align: NULL;
+      align-self: NULL;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 50%;
+}
+
+.pseudo .aside1 .now {
+  margin: 35px 0 auto 0;
+  padding: 0 15px 0 15px;
+  width: 85%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  justify-self: NULL;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  background: rgba(0, 0, 0, 0.164);
+  border: 1px solid #ffffff4d;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 30px 0 0 30px;
+}
+
+.pseudo .aside1 .now .cur-condition {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: NULL;
+          flex-direction: NULL;
+  justify-self: NULL;
+  -ms-flex-item-align: NULL;
+      align-self: NULL;
+  margin: NULL;
+  padding: 0;
+  width: auto;
+  height: auto;
+  position: relative;
+}
+
+.pseudo .aside1 .now .cur-condition #condition-icon {
+  margin: 0;
+  padding: 0;
+  width: 70px;
+  height: 70px;
+}
+
+.pseudo .aside1 .now .cur-condition #apparent {
+  font: 200 30px "Manrope", sans-serif;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: NULL;
+  -ms-flex-item-align: NULL;
+      align-self: NULL;
+  margin: NULL;
+  padding: 0;
+  width: 60px;
+  height: auto;
+  position: relative;
+  margin-left: 17px;
+}
+
+.pseudo .aside1 .now .cur-condition #apparent::after {
+  content: '';
+  margin: 0;
+  padding: 0;
+  width: 1.5px;
+  height: 50px;
+  position: absolute;
+  right: 110%;
+  background-color: white;
+}
+
+.pseudo .aside1 .now .cur-condition #apparent::before {
+  content: 'Feels Like';
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  font: 500 12px "Overpass", sans-serif;
+  color: white;
+  text-align: center;
+  opacity: 1;
+  -webkit-transition: all 0.4 ease-in;
+  transition: all 0.4 ease-in;
+}
+
+.pseudo .aside1 .now #clock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: 0;
+  -ms-flex-item-align: 0;
+      align-self: 0;
+  font: 300 clamp(27px, 2.3vw, 35px) "Manrope", sans-serif;
+  color: white;
+}
+
+.pseudo .aside1 .now #clock #digital {
+  margin: 0;
+  padding: 0;
+}
+
+.pseudo .aside1 .now #clock .calender-date {
+  font: 500 15px "Manrope", sans-serif;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: NULL;
+          flex-direction: NULL;
+  justify-self: NULL;
+  -ms-flex-item-align: NULL;
+      align-self: NULL;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+}
+
+.pseudo .aside1 .now #clock .calender-date #day, .pseudo .aside1 .now #clock .calender-date #date {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.pseudo .aside1 .timeline {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: NULL;
+  -ms-flex-item-align: NULL;
+      align-self: NULL;
+  position: relative;
+  overflow: hidden;
+}
+
+.pseudo .aside1 .timeline .arch {
+  margin: 0 7px 0 0;
+  padding: 0;
+  width: 100%;
+  height: clamp(150px, 17vw, 200px);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.pseudo .aside1 .timeline .arch .interval {
+  margin: 0;
+  padding: 8px;
+  width: 100%;
+  height: 190%;
+  list-style: none;
+  position: absolute;
+  text-align: center;
+}
+
+.pseudo .aside1 .timeline .arch .interval #info-at {
+  font: 400 1em "Overpass", sans-serif;
+  color: white;
+}
+
+.pseudo .aside1 .timeline .arch .interval .time {
+  font: 400 0.7em "Overpass", sans-serif;
+  color: white;
+}
+
+.pseudo .aside1 .timeline .arch .position-1 {
+  -webkit-transform: rotate(292.5deg);
+          transform: rotate(292.5deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-1 .info-1 {
+  -webkit-transform: rotate(-292.5deg);
+          transform: rotate(-292.5deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-1 .interval-at1 {
+  -webkit-transform: rotate(-292.5deg);
+          transform: rotate(-292.5deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-2 {
+  -webkit-transform: rotate(315deg);
+          transform: rotate(315deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-2 .info-2 {
+  -webkit-transform: rotate(-315deg);
+          transform: rotate(-315deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-2 .interval-at2 {
+  -webkit-transform: rotate(-315deg);
+          transform: rotate(-315deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-3 {
+  -webkit-transform: rotate(337.5deg);
+          transform: rotate(337.5deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-3 .info-3 {
+  -webkit-transform: rotate(-337.5deg);
+          transform: rotate(-337.5deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-3 .interval-at3 {
+  -webkit-transform: rotate(-337.5deg);
+          transform: rotate(-337.5deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-4 {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-4 .info-4 {
+  -webkit-transform: rotate(-360deg);
+          transform: rotate(-360deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-4 .interval-at4 {
+  -webkit-transform: rotate(-360deg);
+          transform: rotate(-360deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-5 {
+  -webkit-transform: rotate(382.5deg);
+          transform: rotate(382.5deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-5 .info-5 {
+  -webkit-transform: rotate(-382.5deg);
+          transform: rotate(-382.5deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-5 .interval-at5 {
+  -webkit-transform: rotate(-382.5deg);
+          transform: rotate(-382.5deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-6 {
+  -webkit-transform: rotate(405deg);
+          transform: rotate(405deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-6 .info-6 {
+  -webkit-transform: rotate(-405deg);
+          transform: rotate(-405deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-6 .interval-at6 {
+  -webkit-transform: rotate(-405deg);
+          transform: rotate(-405deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-7 {
+  -webkit-transform: rotate(427.5deg);
+          transform: rotate(427.5deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-7 .info-7 {
+  -webkit-transform: rotate(-427.5deg);
+          transform: rotate(-427.5deg);
+}
+
+.pseudo .aside1 .timeline .arch .position-7 .interval-at7 {
+  -webkit-transform: rotate(-427.5deg);
+          transform: rotate(-427.5deg);
+}
+
+.pseudo .aside1 .timeline .baseline {
+  margin: 0;
+  padding: 0;
+  width: 94%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: NULL;
+          flex-direction: NULL;
+  justify-self: NULL;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  background: rgba(0, 0, 0, 0.164);
+  border: 1px solid #ffffff4d;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(0);
+          backdrop-filter: blur(0);
+  -webkit-box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.5);
+  border-radius: 15px 0 0 15px;
+}
+
+.pseudo .aside1 .timeline .baseline .baseOf {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: NULL;
+  -ms-flex-item-align: NULL;
+      align-self: NULL;
+  margin: 0;
+  padding: 7px;
+  width: auto;
+  height: auto;
+  list-style: none;
+}
+
+.pseudo .aside1 .timeline .baseline .baseOf .hour {
+  border-top: 2px white solid;
+}
+
+.pseudo .aside1 .timeline .baseline .baseOf > * {
+  font: 400 1.2em "Manrope", sans-serif;
+  color: white;
+}
+
+.pseudo .aside2 {
+  margin: 0;
+  padding: 20px 0 0 20px;
+  width: auto;
+  height: 45%;
+}
+
+.pseudo .aside2 .card-list {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  background: rgba(0, 0, 0, 0.164);
+  border: 1px solid #ffffff4d;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(0);
+          backdrop-filter: blur(0);
+  -webkit-box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.5);
+  border-radius: 45px 0 0 45px;
+  border: none;
+}
+
+.pseudo .aside2 .card-list .card {
+  margin: 10px;
+  padding: 10px;
+  width: 70%;
+  height: 78%;
+  background: NULL;
+  border: 1px solid #ffffff4d;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  list-style: none;
+  border-radius: 15px;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: NULL;
+  -ms-flex-item-align: NULL;
+      align-self: NULL;
+  font: 200 1rem "Manrope", sans-serif;
+  color: white;
+  position: relative;
+  background: none;
+  border-right: solid black 1px;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.pseudo .aside2 .card-list .card p {
+  margin: 0;
+  padding: 0;
+  width: NULL;
+  height: NULL;
+  font: 300 30px "Manrope", sans-serif;
+  color: NULL;
+}
+
+.pseudo .aside2 .card-list .card img {
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  height: auto;
+}
+
+.pseudo .aside2 .card-list .card::before {
+  content: '';
+  margin: auto;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#817f7f00), to(#ffffff36));
+  background: linear-gradient(90deg, #817f7f00, #ffffff36);
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  opacity: 0;
+  border-radius: 15px 0 0 15px;
+  z-index: -1;
+}
+
+.pseudo .aside2 .card-list .card:hover::before {
+  opacity: 0.7;
+}
+
+/*
+    - The screen is a flex parent
+    - Search Bar would take up 80% of the top of the nav
+    - bottom of the main section keeps the same format ( City, State | Temperature F/C )
+    - Photo will be parallax
+    ---------------------------
+    - Bottom will be a second imported picture as a background 
+    which will just be a picture of the current weather condition
+
+    - Left side of the bottom page will be a list of the conditions with corresponding times
+    - Right Side will be the current weather condition represented as an icon and the current feels like temperature
+*/
+@media only screen and (max-width: 925px) {
+  #digital {
+    display: none;
+  }
+  #day {
+    display: none;
+  }
+  .analog {
+    margin: NULL;
+    padding: NULL;
+    width: 50px;
+    height: 50px;
+    border: 1.5px solid white;
+    border-radius: 50%;
+    position: relative;
+    opacity: 1;
+  }
+  .analog .hand {
+    top: 50%;
+    right: 50%;
+    position: absolute;
+    border-radius: 6px;
+    -webkit-transform-origin: 100%;
+            transform-origin: 100%;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    -webkit-transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  }
+  .analog .hour-hand {
+    margin: NULL;
+    padding: NULL;
+    width: 30%;
+    height: 2.5px;
+    background: white;
+  }
+  .analog .min-hand {
+    margin: NULL;
+    padding: NULL;
+    width: 45%;
+    height: 1.5px;
+    background: white;
+  }
+  .analog .sec-hand {
+    margin: NULL;
+    padding: NULL;
+    width: 47%;
+    height: 1.7px;
+    background: red;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    justify-self: NULL;
+    -ms-flex-item-align: NULL;
+        align-self: NULL;
+    margin: NULL;
+    padding: NULL;
+    width: 100vw;
+    height: 200vh;
+  }
+  .main {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .main .search-div {
+    margin: 20px 0 0 0;
+    padding: 0;
+    width: 85%;
+    height: 40px;
+  }
+  .main .main-sec {
+    margin: 0;
+    padding: 0 0 0 20px;
+    width: 85%;
+    height: auto;
+  }
+  .pseudo {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    justify-self: NULL;
+    -ms-flex-item-align: NULL;
+        align-self: NULL;
+    -webkit-backdrop-filter: blur(200px);
+            backdrop-filter: blur(200px);
+    border-radius: 50px 50px 0 0;
+  }
+  .pseudo .aside1 {
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    height: 40%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    justify-self: NULL;
+    -ms-flex-item-align: NULL;
+        align-self: NULL;
+  }
+  .pseudo .aside1 .now {
+    padding-top: 25px;
+    width: 65%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    background-color: transparent;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: none;
+  }
+  .pseudo .aside1 .now #clock {
+    display: none;
+  }
+  .pseudo .aside1 .now .cur-condition {
+    margin: 0;
+    padding: 5px;
+    width: 130%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: NULL;
+            flex-direction: NULL;
+    justify-self: NULL;
+    -ms-flex-item-align: NULL;
+        align-self: NULL;
+    background: rgba(0, 0, 0, 0.219);
+    border: 1px solid #ffffff4d;
+    -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(14px);
+            backdrop-filter: blur(14px);
+    border: none;
+    border-radius: 15px;
+  }
+  .pseudo .aside1 .now .cur-condition > * {
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    height: 100px;
+  }
+  .pseudo .aside1 .now .cur-condition #apparent {
+    font: 200 35px "Manrope", sans-serif;
+    color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    justify-self: NULL;
+    -ms-flex-item-align: NULL;
+        align-self: NULL;
+    margin: 0 0 0 40px;
+    padding: 0;
+    width: 60px;
+    height: auto;
+    justify-self: center;
+  }
+  .pseudo .aside1 .timeline {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: NULL;
+            flex-direction: NULL;
+    justify-self: NULL;
+    -ms-flex-item-align: NULL;
+        align-self: NULL;
+  }
+  .pseudo .aside1 .timeline .baseline {
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    height: auto;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    background-color: transparent;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: none;
+  }
+  .pseudo .aside2 {
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    height: auto;
+  }
+  .pseudo .aside2 .card-list {
+    border-radius: 15px;
+  }
+}
+
+@media only screen and (max-height: 650px) {
+  .pseudo {
+    border-radius: 15px 0 0 15px;
+  }
+  .pseudo .aside1 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: NULL;
+            flex-direction: NULL;
+    justify-self: NULL;
+    -ms-flex-item-align: NULL;
+        align-self: NULL;
+  }
+  .pseudo .aside1 .timeline {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    justify-self: NULL;
+    -ms-flex-item-align: NULL;
+        align-self: NULL;
+  }
+  .pseudo .aside1 .timeline .arch {
+    margin: 0;
+    padding: 0;
+    width: 150px;
+    height: clamp(150px, 60%, 160px);
+  }
+  .pseudo .aside1 .timeline .baseline {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: NULL;
+            flex-direction: NULL;
+    justify-self: NULL;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin: 0;
+    padding: 0;
+    width: 95%;
+    height: 30%;
+    font-size: 20px;
+    border-radius: 15px 0 0 15px;
+  }
+  .pseudo .aside2 {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 450px) {
+  .aside1 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .aside2 {
+    display: none;
+  }
+}
+/*# sourceMappingURL=style.css.map */

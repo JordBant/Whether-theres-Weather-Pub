@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Document</title>
+</head>
+<body>
+     <main class="main">
+        <nav id="search-div" class="search-div">
+            <input type="text" id = "search" class="search" placeholder="Search a United States City">
+            <ul id="locations-dropdown" class="locations-dropdown">
+                <!-- 
+                    <li id = 'location' class="location">New York, New York Metro Area</li> 
+                -->
+            </ul>
+        </nav>
+         <section class="main-sec">
+            <p id = 'location'></p>
+            <hr class = 'line'>
+            <p id = 'temperature'>~&deg; 
+                <div class="supers" id="supers">
+                    <p id="Fahr" class="selected">F</p> 
+                    <p id="Cels" class="unselected">C</p>
+                </div>
+            </p>
+         </section>
+     </main>
+     <section class = "pseudo">
+        <aside class="aside1">
+            <section class="now">
+                <section class="cur-condition">
+                    <iframe src="media/displayed.svg" alt="Current weather condition" id="condition-icon" frameborder="0"></iframe>
+                   <p id="apparent">~&deg;</p>
+                </section>
+                <section id="clock">
+                   <div class ="analog">
+                       <div class = "hand hour-hand" ></div>
+                       <div class = "hand min-hand" ></div>
+                       <div class= "hand sec-hand"></div>
+                   </div>
+                   <p id = "digital">00:00</p>
+                   <div class="calender-date">
+                       <p id="day"> Monday </p>
+                       <p id="date">02/23</p>
+                   </div>
+               </section>
+           </section>
+            <section class="timeline"> 
+               <ul class = "arch">
+                   <li class = "interval position-1"> 
+                       <p id = "info-at" class = "info-1">~</p>
+                       <p class = "time interval-at1">~</p>
+                   </li>
+                   <li class = "interval position-2">
+                       <p id = "info-at" class = "info-2">~</p>
+                       <p class = "time interval-at2">~</p>
+                   </li>
+                   <li class = "interval position-3">
+                       <p id = "info-at" class = "info-3">~</p>
+                       <p class = "time interval-at3">~</p>
+                   </li>
+                   <li class = "interval position-4">
+                       <p id = "info-at" class = "info-4">~</p>
+                       <p class = "time interval-at4">~</p>
+                   </nli>
+                   <li class = "interval position-5">
+                       <p id = "info-at" class = "info-5">~</p>
+                       <p class = "time interval-at5">~</p>
+                   </li>
+                   <li class = "interval position-6">
+                       <p id = "info-at" class = "info-6">~</p>
+                       <p class = "time interval-at6">~</p>
+                   </li>
+                   <li class = "interval position-7">
+                       <p id = "info-at" class = "info-7">~</p>
+                       <p class = "time interval-at7">~</p>
+                   </li>
+               </ul>
+               <div class="baseline">
+                   <ul class="baseOf current">
+                       <li class="current-info" id="current-info">~</li>
+                       <li class="current hour" id="current-hour-at">~</li>
+                   </ul>
+                   <ul class="baseOf last">
+                       <li class="last-info" id="last-info">~</li>
+                       <li class="last hour" id="last-hour-at">~</li>
+                   </ul>
+               </div>
+            </section>
+        </aside> 
+        <aside class="aside2">
+           <ul class="card-list">
+               <li id= 'card1' class="card">
+                   <img src="media/percip.svg" alt="Percipitation" id="percip-icon">
+                   <p id="percipProb">~</p>
+               </li>
+               <li id= 'card2' class="card">
+                   <img src="media/humid.svg" alt="Humidity">
+                   <p id="humid">~</p>
+               </li>
+               <li id= 'card3' class="card">
+                   <img src="media/visibility.svg" alt="Visibility">                
+                   <p id="visibility">~</p>
+               </li>
+               <li id= 'card4' class="card">
+                   <img src="media/windspeed.svg" alt="Windspeed">
+                   <p id="windSpeed">~</p>
+               </li>
+           </ul>
+        </aside>
+     </section>
+     <script src="script.js"></script>
+</body>
+</html>
