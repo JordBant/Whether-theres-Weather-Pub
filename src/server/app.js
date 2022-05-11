@@ -2,7 +2,7 @@ const axios = require('axios')
 const path = require('path')
 const fs = require('fs');
 
-const publicPath = path.join(__dirname, '../public')
+const publicPath = path.join(__dirname, '../../public')
 
 const express = require('express')
 const app = express()
