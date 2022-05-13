@@ -108,6 +108,13 @@ body
         // border: pink solid 2px;
         border-radius: 25px;
 
+        .photoDL{
+            @include size(200px, 200px, 0, 0);
+            border-radius: 15px;
+            background-color: blue;
+            inset: 100% 100%;
+            position: absolute;
+        }
         .search{
             @include font(300, 1rem, white, 'Overpass');
             @include size(90%, 37px, 0, 0 5px 0 5px);

@@ -63,6 +63,16 @@ body > * {
   position: relative;
   border-radius: 25px;
 }
+.main .search-div .photoDL {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+  background-color: blue;
+  inset: 100% 100%;
+  position: absolute;
+}
 .main .search-div .search {
   font: 300 1rem "Overpass", sans-serif;
   color: white;
