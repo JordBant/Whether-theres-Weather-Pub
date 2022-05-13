@@ -77,7 +77,7 @@ app.post('/weather', (req, res) => {
             console.log(error) 
         } 
         res.json(weatherAPI)
-        // console.log(coords);
+        console.log(coords);
     }
     getWeather()
 })
@@ -108,7 +108,7 @@ app.post('/code', (req, res) => {
     const IconFileManip = async () => {
         try {
             const myCurrPath = 'conditions_icon/' //condition.svg
-            const dirOfTarget = '../../public/media/' //displayed.svg
+            const dirOfTarget = './public/media/' //displayed.svg
 
             const files = await fs.promises.readdir(myCurrPath);
             const targetDir = await fs.promises.readdir(dirOfTarget)

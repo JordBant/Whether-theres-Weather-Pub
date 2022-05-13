@@ -13,10 +13,14 @@
   "dependencies": {
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "uninstall": "^0.0.0"
   },
   "description": "Weather App created in Vanilla Javascript, HTML, CSS(SASS). And the backend built in Node.js and Express.js and produced with Gulp.js",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.51.0"
   }
 }

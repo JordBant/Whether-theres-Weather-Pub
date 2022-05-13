@@ -1,0 +1,1 @@
+const gulp=require("gulp"),sass=require("gulp-sass")(require("sass")),uglify=require("gulp-uglify"),buildStyles=()=>gulp.src("./styles/**/*.scss").pipe(sass().on("error",sass.logError)).pipe(gulp.dest("./dist/css")),uglifyJS=()=>gulp.src("./*.js").pipe(uglify()).pipe(gulp.dest("./dist/bundleJS"));exports.buildStyles=buildStyles,exports.uglifyJS=uglifyJS;
