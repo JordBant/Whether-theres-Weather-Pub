@@ -15,5 +15,8 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3"
   },
-  "description": "Weather App created in Vanilla Javascript, HTML, CSS(SASS). And the backend built in Node.js and Express.js"
+  "description": "Weather App created in Vanilla Javascript, HTML, CSS(SASS). And the backend built in Node.js and Express.js and produced with Gulp.js",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }
