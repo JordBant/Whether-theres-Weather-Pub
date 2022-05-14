@@ -60,6 +60,7 @@
 @mixin card($cardW-W, $cardH-H, $bg-bg){
     @include size($cardW-W, $cardH-H, 10px, 10px);
     @include frostGlass($bg-bg);
+
     transition: all 0.5s ease-in-out;
     list-style: none;
     border-radius: 15px;
@@ -75,7 +76,6 @@ body
     @include flex(space-between, center, NULL, NULL, NULL);
 
     background: #0e101f no-repeat center center;
-    background-image: url(../media/weatherApp.jpg);
     background-size: cover;
 
     & > *{background: transparent;}    
@@ -90,6 +90,55 @@ body
     @include flex(space-between, center, column, center, NULL);
     @include size(80%, 91.8vh, 0, 20px 30px);
 
+    .accredit{
+        $circleDim: 57px;
+
+        // @include size($circleDim, $circleDim, 0, 0);
+        @include frostGlass(#2a2b33be);
+        @include flex(flex-start, flex-end, column, NULL, flex-start);
+        @include size(17%, 350px, 0, 12px);
+        // clamp(27px, 
+
+        overflow: hidden;
+        position: absolute;
+
+        // border-radius: 50%;
+        border-radius: 15px;
+
+        border: none;
+        transition: all 0.3s cubic-bezier(0.26, 1.05, 0.63, 1.10);
+
+        // &:hover{
+        //     @include size(250px, 350px, 0, 12px);
+        //     border-radius: 15px;
+        // }
+        .profileInfo{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            border: red 2px solid;
+            
+            .profilePic{
+                @include size(70px, 70px, 0, 0);
+
+                border-radius: 50%;
+                background-color: red;
+            }
+        }
+        .socialList{
+            @include size(70%, auto, 0, 0);
+            @include flex(space-evenly, flex-end, column, NULL, flex-end);
+
+            border: 2px solid green;
+
+            .social
+            {
+                @include size(70%, 30px, -margin, -padding);
+                border: 2px solid red;
+            }
+        }
+    }
+
     /* 
     ++++++++++++++++++++++ 
         Search Section 
@@ -99,22 +148,13 @@ body
         
         @include frostGlass(#2a2b33be);
         @include size(clamp(300px, 50%, 500px), 5%, 0, 5px 0 0 5px);
+        @include flex(center, center, column, flex-start, NULL);
 
-        @include flex(center, center, column, NULL, NULL);
-        align-self: center;
-        transition: all 0.4s ease-in-out;
+        transition: all 0.55s cubic-bezier(0.26, 1.05, 0.63, 1.05);
         position: relative;
-
-        // border: pink solid 2px;
         border-radius: 25px;
+        // border: pink solid 2px;
 
-        .photoDL{
-            @include size(200px, 200px, 0, 0);
-            border-radius: 15px;
-            background-color: blue;
-            inset: 100% 100%;
-            position: absolute;
-        }
         .search{
             @include font(300, 1rem, white, 'Overpass');
             @include size(90%, 37px, 0, 0 5px 0 5px);
@@ -124,7 +164,6 @@ body
             background: none;
             outline: none;
             border: none;
-            transition: all 0.7s ease-in-out;
             
             &:focus{
                 outline: none;
@@ -140,6 +179,7 @@ body
             .location{
                 @include font(100, 15px/*clamp(25px, 4vw, 55px)*/, white, 'Manrope');
                 @include size(95%, 10px, 0, 15px);
+
                 list-style: none;
                 position: relative;
                 border-top: rgba(255, 255, 255, 0.521) solid 1px;
@@ -273,6 +313,7 @@ body
                     &::after{
                         content: '';
                         @include size(1.5px, 50px, 0, 0);
+
                         position: absolute;
                         right: 110%;
                         background-color: white;
@@ -282,6 +323,7 @@ body
                         content: 'Feels Like';
                         @include size(100%, auto, 0, 0);
                         @include font(500, 12px, white, 'Overpass');
+
                         text-align: center;
                         opacity: 1;
                         transition: all 0.4 ease-in;
@@ -352,7 +394,6 @@ body
                     }
                     $betweens: $betweens + $deg-apart;
                 }
-                
             }
             .baseline{
                 @include size(94%, auto, 0, 0);
