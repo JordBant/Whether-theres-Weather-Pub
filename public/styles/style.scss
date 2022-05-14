@@ -134,7 +134,7 @@ body
             .social
             {
                 @include size(70%, 30px, -margin, -padding);
-                border: 2px solid red;
+                border: 2px solid red; 
             }
         }
     }
