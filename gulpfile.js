@@ -1,33 +1,32 @@
 const { src, dest, watch } = require('gulp');
-
 const uglify = require('gulp-uglify')
 const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css')
 
-const buildStyles = () => {
+const buildCSS = () => {
   return src('./public/styles/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(dest('./dist/css'));
+    .pipe(dest('./public/dist/css'));
 };
 
 const uglifyCSS = () => {
-    return src('./dist/css/*.css')
+    return src('./public/dist/css/*.css')
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(dest('dist/css'))
+    .pipe(dest('./public/dist/css'))
 }
 
 const uglifyJS = () => {
-    return gulp.src('./public/script.js')
+    return src('./public/*.js')
     .pipe(uglify())
-    .pipe(dest('./dist/bundleJS'));
+    .pipe(dest('./public/dist/bundleJS'));
 }
 
 const watchDev = () => {
-    watch('./styles/*.scss',buildStyles)
+    watch('./styles/*.scss',buildCSS)
     watch('./script.js', uglifyJS)
 }
 
-exports.buildStyles = buildStyles;
+exports.buildCSS = buildCSS;
 exports.uglifyJS = uglifyJS;
 exports.uglifyCSS = uglifyCSS
 exports.watchDev = watchDev
