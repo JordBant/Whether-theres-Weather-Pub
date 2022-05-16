@@ -1,5 +1,5 @@
 A dynamic weather application created in Vanilla Javascript, HTML and CSS.
-A similar project exists in 53-ES6 repo.
+A similar project exists in 53-ES6 repo. This repo is for production and the codebase is pushed to a heroku repo
 
 Functionality
 -------------
