@@ -26,6 +26,7 @@ const watchDev = () => {
     watch('./script.js', uglifyJS)
 }
 
+
 exports.buildCSS = buildCSS;
 exports.uglifyJS = uglifyJS;
 exports.uglifyCSS = uglifyCSS
