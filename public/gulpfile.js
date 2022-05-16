@@ -26,6 +26,11 @@ const watchDev = () => {
     watch('./script.js', uglifyJS)
 }
 
+// const deploy = () =>{
+//     return gulp.src"./dist/**/*"
+//     .pipe(deploy())
+// }
+
 exports.buildStyles = buildStyles;
 exports.uglifyJS = uglifyJS;
 exports.uglifyCSS = uglifyCSS
