@@ -1,4 +1,3 @@
-//----------------------------()--------------------------------
 const supers = document.getElementById('supers');
 const searchBar = document.getElementById('search'); 
 const loc_List = document.getElementById('locations-dropdown')

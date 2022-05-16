@@ -4,7 +4,7 @@ const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css')
 
 const buildStyles = () => {
-  return src('./styles/**/*.scss')
+  return src('./public/styles/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(dest('./dist/css'));
 };
@@ -16,7 +16,7 @@ const uglifyCSS = () => {
 }
 
 const uglifyJS = () => {
-    return gulp.src('./script.js')
+    return gulp.src('./public/script.js')
     .pipe(uglify())
     .pipe(dest('./dist/bundleJS'));
 }
